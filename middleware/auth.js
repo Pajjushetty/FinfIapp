@@ -23,8 +23,10 @@ async function isAdmin(req, res, next) {
             res.status(403).send({ message: 'Forbidden: Not an Admin.' });
         }
     } catch (error) {
+        console.error('Error in isAdmin middleware:', error);
         res.status(401).send({ message: 'Unauthorized: Invalid token.' });
     }
 }
+
 
 module.exports = { isAdmin };
